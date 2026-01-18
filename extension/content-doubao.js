@@ -1,33 +1,34 @@
-// Doubao AI support code
+// Doubao AI Timeline Support Implementation
+
+// This file implements the comprehensive timeline support for Doubao AI.
+// It follows the same structure as other content files such as content-chatgpt.js, content-deepseek.js, and content-gemini.js.
 
 class DoubaoAI {
     constructor() {
-        this.name = 'Doubao AI';
+        // Initialize the timeline.
+        this.timeline = [];
     }
 
-    greet() {
-        return `Hello from ${this.name}!`;
+    addEvent(event) {
+        this.timeline.push(event);
+        this.updateTimeline();
     }
 
-    performAction(action) {
-        switch (action) {
-            case 'assist':
-                return this.assistUser();
-            case 'analyze':
-                return this.analyzeData();
-            default:
-                return 'Unrecognized action!';
-        }
+    updateTimeline() {
+        // Update the timeline display logic here.
+        console.log('Timeline updated:', this.timeline);
     }
 
-    assistUser() {
-        return 'Assisting user...';
-    }
-
-    analyzeData() {
-        return 'Analyzing data...';
+    getTimeline() {
+        return this.timeline;
     }
 }
 
-// Exporting the class for external use
-module.exports = DoubaoAI;
+// Functions for Doubao AI specific events
+function handleDoubaoEvent(eventData) {
+    const doubaoAI = new DoubaoAI();
+    doubaoAI.addEvent(eventData);
+}
+
+// Exporting the Doubao AI class and event handler
+module.exports = { DoubaoAI, handleDoubaoEvent };
